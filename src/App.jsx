@@ -1,32 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-function App() {
-    const [data, setData] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+const API_URL = import.meta.env.VITE_API_URL;
 
-    useEffect(() => {
-        fetch('/portfolio')
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP error! ${res.status}`)
-                return res.json()
-            })
-            .then(json => setData(json))
-            .catch(err => setError(err.message))
-            .finally(() => setLoading(false))
-    }, [])
+export default function App() {
+  const [data, setData] = useState(null);
+  const [err, setErr] = useState("");
 
-    if (loading) return <p>Loading�</p>
-    if (error) return <p style={{ color: 'red' }}>Error: {error}</p>
+  useEffect(() => {
+    const url = `${API_URL}`; // eller `${API_URL}/profile` om du vill börja litet
+    console.log("Hämtar:", url);
+    fetch(url, { headers: { Accept: "application/json" } })
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(setData)
+      .catch(e => setErr(e.message));
+  }, []);
 
-    const profile = data?.profile
-
-    return (
-        <main style={{ padding: 24, fontFamily: 'Arial, sans-serif' }}>
-            <h1>{profile?.name}</h1>
-            <h2>{profile?.title}</h2>
-        </main>
-    )
+  return (
+    <div style={{ padding: 20 }}>
+      <h1>Min portfolio</h1>
+      {err && <p style={{color:'crimson'}}>Error: {err}</p>}
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
 }
-
-export default App
