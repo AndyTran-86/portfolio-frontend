@@ -1,0 +1,14 @@
+.contact-form { max-width:520px; display:grid; gap:12px; }
+.field { display:grid; gap:6px; }
+label { font-weight:600; }
+input, textarea {
+  padding:10px; border:1px solid #ccc; border-radius:6px; font: inherit;
+}
+button {
+  padding:10px 14px; border:1px solid #ddd; border-radius:6px; cursor:pointer;
+  background:#f6f6f6;
+}
+button[disabled]{ opacity:.7; cursor:not-allowed; }
+.notice { margin:4px 0 0; }
+.notice.ok { color: #0a8a0a; }
+.notice.err { color: #b00020; white-space: pre-wrap; }
