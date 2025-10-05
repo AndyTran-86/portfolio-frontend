@@ -3,6 +3,7 @@ import "./ContactForm.css";
 
 const API_BASE = (import.meta.env.VITE_API_URL ?? "").replace(/\/+$/, "");
 const CONTACT_URL = `${API_BASE}/api/contact`;
+console.log("CONTACT_URL =", CONTACT_URL)
 
 export default function ContactForm() {
   const [sending, setSending] = useState(false);
@@ -11,6 +12,7 @@ export default function ContactForm() {
 
   async function onSubmit(e) {
     e.preventDefault();
+    const form = e.currentTarget;
     setSending(true); setOk(false); setErr("");
 
     const fd = new FormData(e.currentTarget);
@@ -31,7 +33,7 @@ export default function ContactForm() {
       const text = await res.text();
       if (!res.ok) throw new Error(`HTTP ${res.status} - ${text}`);
       setOk(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (e) {
       setErr(String(e.message || e));
     } finally {
