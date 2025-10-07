@@ -167,6 +167,8 @@ const prev = () => setIndex((index - 1 + gallery.length) % gallery.length);
             </div>
           )}
 
+        <p><strong>Send me a message if you want to get in touch.</strong></p>
+          
           <ContactForm />
         </section>
       </main>
