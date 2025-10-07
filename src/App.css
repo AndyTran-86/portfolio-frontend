@@ -39,13 +39,13 @@ section h2 { margin: 0 0 16px; font-size: 22px; }
 }
 
 .simple-viewer img {
-  max-width: min(800px,9vw);
+  max-width: min(800px,90vw);
   max-height: 65vh;
   width: 100%;
   height: auto;
   object-fit: contain;
   border-radius: 10px;
-  box-shadow: 0 6px 20px rgb(0, 0, 0, .15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
 }
 .nav-btn {
   background: #eee;

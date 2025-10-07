@@ -112,29 +112,33 @@ const prev = () => setIndex((index - 1 + gallery.length) % gallery.length);
                href="https://github.com/AndyTran-86/webshop">View Repo →</a>
           </article>
             
-            <article className="card" onClick={() => {setIndex(0); setShowGallery(true);}} >
+            <article className="card">
                 <strong>Project Elijah</strong>
                 <p className="muted">My best project Ever</p>
                  <button
                 className="btn"
                 type="button"
-                onClick={() => { setIndex(0); setShowGallery(true); }}
-  >
-                 View screenshots →
+                onClick={() => { setIndex(0); setShowGallery(true); }}>
+                 View Project→
                 </button>
                 </article> 
                 
-                {showGallery && 
-                   (
+                {showGallery && (
                     <div className="simple-viewer">
-                    <button onClick={prev}>←</button>
-                    <img src={gallery[index]} alt={`Image ${index + 1}`} />
-                    <button onClick={next}>→</button>
-                        <div>
-                    <button className="close-btn" onClick={() => setShowGallery(false)}>Close ✕</button>
+                        <div className="simple-viewer-frame">
+                        <button className="nav-btn" onClick={prev} aria-label="Previous">←</button>
+
+                        <img src={gallery[index]} alt={`Image ${index + 1}`} />
+
+                        <button className="nav-btn" onClick={next} aria-label="Next">→</button>
+                    </div>
+
+                        <div className="simple-viewer-actions">
+                        <span className="muted">{index + 1} / {gallery.length}</span>
+                        <button className="btn" onClick={() => setShowGallery(false)}>Close ✕</button>
                         </div>
-                            </div>
-                            )}
+                    </div>
+                    )}
         </section>
 
         <section id="contact">
