@@ -72,7 +72,7 @@ export default function ContactForm() {
         {sending ? "Sending…" : "Send"}
       </button>
 
-      {ok  && <p className="notice ok">Tack! Ditt meddelande är skickat.</p>}
+      {ok  && <p className="notice ok">Thanks. Your message has been sent!</p>}
       {err && <p className="notice err">{err}</p>}
     </form>
   );

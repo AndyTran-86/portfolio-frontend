@@ -13,7 +13,7 @@ export default function App() {
   console.log("APP mounted. API =", API);
 
   useEffect(() => {
-    fetch(`${API}/portfolio`)
+    fetch(`${API}/api/portfolio`)
       .then(r => r.ok ? r.json() : Promise.reject(r))
       .then(data => {
         setProfile(data?.profile ?? null);
