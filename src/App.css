@@ -1,38 +1,25 @@
-html { scroll-behavior: smooth; }
+.nav { position: sticky; top: 0; z-index: 50; background:#fff; border-bottom:1px solid #eee; display:flex; gap:12px; padding:12px 16px; }
+.nav a { padding:8px 10px; border-radius:8px; }
+.nav a:hover { background:#f5f5f5; }
 
-body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #222; }
-
-
-.nav {
-  position: sticky; top: 0; z-index: 50;
-  background: #fff; border-bottom: 1px solid #eee;
-  display: flex; gap: 8px; padding: 10px 16px;
-}
-.nav a {
-  text-decoration: none; color: #333; padding: 8px 10px; border-radius: 8px;
-}
-.nav a:hover { background: #f5f5f5; }
-
-
-section { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
-section h1 { margin: 0 0 6px 0; font-size: 32px; }
-section h2 { margin: 0 0 16px 0; font-size: 22px; }
+.container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+section { padding: 32px 0; }
+section h1 { margin: 0 0 6px; font-size: 32px; }
+section h2 { margin: 0 0 16px; font-size: 22px; }
 .lead { margin-top: 12px; color: #555; }
 .muted { color: #666; }
 
+.card { border:1px solid #eee; border-radius:12px; padding:16px; margin:12px 0; background:#fff; }
+.tags { list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; }
+.tag { background:#f3f4f6; padding:6px 10px; border-radius:999px; border:1px solid #e5e7eb; }
 
-.card { border: 1px solid #eee; border-radius: 12px; padding: 16px; margin: 10px 0; background: #fff; }
+.btn { display:inline-block; border:1px solid #e5e7eb; background:#fafafa; padding:8px 12px; border-radius:8px; cursor:pointer; }
+.btn:hover { background:#f5f5f5; }
 
-
-.tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.tag { background: #f3f4f6; padding: 6px 10px; border-radius: 999px; border: 1px solid #e5e7eb; }
-
-.list { padding-left: 18px; }
-
-
-.raw { background: #fafafa; padding: 12px; border-radius: 8px; overflow: auto; }
-
-
-.footer { text-align: center; padding: 24px; color: #666; }
-.footer a { color: inherit; text-decoration: none; }
-.footer a:hover { text-decoration: underline; }
+.footer { text-align:center; padding:24px; color:#666; }
+.about-wrap { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+.avatar { width:120px; height:120px; border-radius:9999px;
+  object-fit:cover; border:2px solid #eee; }
+@media (max-width: 600px) {
+  .about-wrap { justify-content:center; text-align:center; }
+}
