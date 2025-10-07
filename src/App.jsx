@@ -9,6 +9,23 @@ export default function App() {
   const [profile, setProfile] = useState(null);
   const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [showGallery, setShowGallery] = useState(false);
+const [index, setIndex] = useState(0);
+
+const gallery = [
+  "/images/eli_1.jpg",
+  "/images/eli_2.jpg",
+  "/images/eli_3.jpg",
+  "/images/eli_4.jpg",
+  "/images/eli_5.jpg",
+  "/images/eli_6.jpg",
+  "/images/eli_7.jpg",
+  "/images/eli_8.jpg",
+  
+];
+
+const next = () => setIndex((index + 1) % gallery.length);
+const prev = () => setIndex((index - 1 + gallery.length) % gallery.length);
 
   console.log("APP mounted. API =", API);
 
@@ -87,12 +104,37 @@ export default function App() {
             <a className="btn" target="_blank" rel="noreferrer"
                href="https://github.com/AndyTran-86/portfolio-backend">Backend Repo →</a>
           </article>
+          
           <article className="card">
             <strong>Webshop</strong>
             <p className="muted">Simple webshop demo in Java/Spring.</p>
             <a className="btn" target="_blank" rel="noreferrer"
                href="https://github.com/AndyTran-86/webshop">View Repo →</a>
           </article>
+            
+            <article className="card" onClick={() => {setIndex(0); setShowGallery(true);}} >
+                <strong>Project Elijah</strong>
+                <p className="muted">My best project Ever</p>
+                 <button
+                className="btn"
+                type="button"
+                onClick={() => { setIndex(0); setShowGallery(true); }}
+  >
+                 View screenshots →
+                </button>
+                </article> 
+                
+                {showGallery && 
+                   (
+                    <div className="simple-viewer">
+                    <button onClick={prev}>←</button>
+                    <img src={gallery[index]} alt={`Image ${index + 1}`} />
+                    <button onClick={next}>→</button>
+                        <div>
+                    <button className="close-btn" onClick={() => setShowGallery(false)}>Close ✕</button>
+                        </div>
+                            </div>
+                            )}
         </section>
 
         <section id="contact">
